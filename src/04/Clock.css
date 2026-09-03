@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600;800&family=Pretendard:wght@400;600;700;800&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 캔버스 전체: 매트한 오프화이트/웜그레이 배경 */
+.clock-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f2f3f5;
+    background-image: radial-gradient(#dcdfe4 1px, transparent 1px);
+    background-size: 28px 28px;
+    font-family: "Pretendard", -apple-system, sans-serif;
+    color: #111418;
+}
+
+/* 중앙 미니멀 모놀리스 카드 */
+.clock-card {
+    width: min(90vw, 560px);
+    background: #ffffff;
+    padding: 48px 52px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.02),
+            0 20px 40px -15px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 상단 메타 라벨 */
+.dept-tag {
+    font-family: "Inter", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #8c939e;
+    margin-bottom: 12px;
+}
+
+/* 학과명: 묵직한 볼드 헤더 */
+.dept-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    color: #0f1419;
+}
+
+/* 간결한 구조적 구분선 */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 32px 0 28px;
+}
+
+/* 시간 섹션 레이아웃 */
+.time-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.time-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #6366f1; /* 은은한 인디고 포인트 */
+}
+
+/* 시계 숫자: 1초마다 폰트 너비가 변해 화면이 덜덜 떨리는 현상 방지(tnum) */
+.time-display {
+    font-family: "Inter", "Pretendard", sans-serif;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #111827;
+    line-height: 1.1;
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 480px) {
+    .clock-card {
+        padding: 32px 28px;
+    }
+    .dept-title {
+        font-size: 1.45rem;
+    }
+    .time-display {
+        font-size: 2rem;
+    }
+}
