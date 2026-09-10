@@ -1,0 +1,27 @@
+/* Welcome.css */
+
+/* 전체 환영 인사를 감싸는 네모난 박스 디자인입니다. */
+.welcome-container {
+    display: flex;             /* 안의 글자를 쉽게 정렬하기 위해 flexbox 모드를 켭니다. */
+    justify-content: center;   /* 가로 기준으로 글자를 정중앙에 배치합니다. */
+    align-items: center;       /* 세로 기준으로 글자를 정중앙에 배치합니다. */
+    padding: 30px;             /* 박스 안쪽으로 30px만큼 넉넉한 여백을 줍니다. */
+    background-color: #f8f9fa; /* 아주 연한 회색으로 배경색을 칠합니다. */
+    border-radius: 15px;       /* 네모난 박스의 모서리를 둥글고 부드럽게 깎아줍니다. */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 박스 아래에 살짝 그림자를 넣어 입체감을 줍니다. */
+    margin: 20px auto;         /* 위아래 20px 여백을 주고, 화면 가운데에 오도록(auto) 배치합니다. */
+    max-width: 400px;          /* 박스가 너무 넓어지지 않게 최대 가로 길이를 400px로 제한합니다. */
+}
+
+/* h1 태그(글자) 자체를 꾸며주는 디자인입니다. */
+.welcome-text {
+    font-size: 24px;           /* 글자 크기를 24px로 설정합니다. */
+    color: #333333;            /* 완전 까만색보다 눈이 편안한 짙은 회색으로 설정합니다. */
+    margin: 0;                 /* h1 태그가 기본적으로 가지는 불필요한 위아래 여백을 없앱니다. */
+}
+
+/* props.name (이름) 부분만 특별하게 강조하는 디자인입니다. */
+.highlight {
+    color: #007bff;            /* 글자 색상을 청량한 파란색으로 바꿉니다. */
+    font-weight: bold;         /* 글씨를 아주 굵게 만듭니다. */
+}

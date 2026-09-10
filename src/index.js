@@ -7,14 +7,17 @@ import reportWebVitals from './reportWebVitals';
 // import Library from "./03/Library";
 // import Library from "./03/enhanced_css/Library";
 // import "./03/enhanced_css/Book.css"
-import Clock from "./04/Clock";
+// import Clock from "./04/Clock";
+// import ConfirmDialog from "./04/ConfirmDialog";
+// import Welcome from "./05/Welcome";
+import WelcomeList from "./05/WelcomList";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 setInterval(()=> {
     root.render(
         <React.StrictMode>
-            <Clock/>
+            <WelcomeList/>
         </React.StrictMode>
     )}, 1000
 );
