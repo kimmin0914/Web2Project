@@ -1,0 +1,19 @@
+/* UserInfo.css */
+
+/* 아바타와 이름을 가로로 나란히 배치 */
+.user-info-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px; /* 사진과 이름 사이 간격 */
+}
+
+/* 쌈뽕한 그라데이션 이름 텍스트 */
+.user-info-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    /* 힙한 핑크/오렌지 그라데이션 */
+    background: linear-gradient(45deg, #ff758c 0%, #ff7eb3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

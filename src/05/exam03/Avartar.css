@@ -1,0 +1,22 @@
+/* Avartar.css */
+
+.avatar-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%; /* 완벽한 동그라미 */
+    object-fit: cover; /* 이미지가 찌그러지지 않게 꽉 채움 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* 테두리에 살짝 핑크 라인을 줍니다 */
+    border: 3px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to right, #ff9a9e, #fecfef);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+    transition: transform 0.4s ease; /* 마우스 올릴 때 팽창 액션 준비 */
+}
+
+/* 사진에 마우스를 올리면? */
+.avatar-img:hover {
+    transform: scale(1.1) rotate(8deg); /* 살짝 커지면서 까딱! 하는 효과 */
+}
