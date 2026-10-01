@@ -1,0 +1,437 @@
+/* =========================
+   기본 설정
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+            "Gungsuh",
+            "Batang",
+            "Noto Serif KR",
+            serif;
+
+    background: #d8c39b;
+}
+
+
+/* =========================
+   전체 화면
+========================= */
+
+#root {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(255, 247, 213, 0.5),
+                    transparent 55%
+            ),
+            repeating-linear-gradient(
+                    0deg,
+                    rgba(100, 73, 38, 0.03) 0px,
+                    rgba(100, 73, 38, 0.03) 1px,
+                    transparent 1px,
+                    transparent 5px
+            ),
+            #d8c39b;
+}
+
+
+/* =========================
+   전체 알림창
+========================= */
+
+#root > div {
+    position: relative;
+
+    width: 680px;
+    min-height: 530px;
+
+    padding:
+            150px
+            38px
+            38px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #f0dfb2,
+                    #e5cd96
+            );
+
+    border: 5px solid #4f321d;
+
+    outline: 2px solid #b68a45;
+    outline-offset: -10px;
+
+    border-radius: 8px;
+
+    box-shadow:
+            0 15px 30px rgba(47, 28, 11, 0.35),
+            inset 0 0 30px rgba(99, 62, 26, 0.12);
+
+    counter-reset: notification;
+}
+
+
+/* =========================
+   위쪽 고전 장식
+========================= */
+
+#root > div::after {
+    content: "◆  ◆  ◆";
+
+    position: absolute;
+
+    top: 16px;
+    right: 28px;
+
+    color: #9a261f;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================
+   제목
+========================= */
+
+#root > div::before {
+    content:
+            "알 림 장\A"
+            "새로운 소식이 도착하였습니다";
+
+    white-space: pre;
+
+    position: absolute;
+
+    top: 34px;
+    left: 38px;
+
+    color: #3b2517;
+
+    font-size: 29px;
+    font-weight: bold;
+
+    line-height: 1.7;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+            1px 1px 0 #f9eac5;
+}
+
+
+/* =========================
+   알림 카드
+========================= */
+
+#root > div > div {
+    position: relative;
+
+    width: 100%;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+            15px
+            48px
+            15px
+            78px;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #fff1c8,
+                    #ead5a0
+            );
+
+    border: 2px solid #72502c;
+
+    border-radius: 3px;
+
+    box-shadow:
+            inset 0 0 0 2px #c49b59,
+            inset 0 0 12px rgba(96, 62, 26, 0.12),
+            0 3px 5px rgba(56, 34, 14, 0.2);
+
+    counter-increment: notification;
+
+    animation: notificationIn 0.45s ease;
+
+    transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+}
+
+
+/* 마우스 효과 */
+#root > div > div:hover {
+    transform: translateX(5px);
+
+    filter: brightness(1.05);
+}
+
+
+/* =========================
+   왼쪽 번호
+========================= */
+
+#root > div > div::before {
+    content: counter(notification);
+
+    position: absolute;
+
+    left: 17px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #ffe9aa;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #7d1f19,
+                    #ad352a
+            );
+
+    border: 2px solid #4c1b17;
+
+    border-radius: 4px;
+
+    box-shadow:
+            inset 0 0 0 2px #cf8c48,
+            2px 2px 0 rgba(60, 34, 15, 0.35);
+
+    font-family: "Batang", serif;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   오른쪽 장식
+========================= */
+
+#root > div > div::after {
+    content: "◆";
+
+    position: absolute;
+
+    right: 18px;
+
+    color: #8c281f;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   메시지
+========================= */
+
+#root > div > div > span {
+    color: #352318;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    line-height: 1.7;
+
+    letter-spacing: -0.2px;
+
+    word-break: keep-all;
+
+    text-shadow:
+            1px 1px 0 rgba(255, 245, 213, 0.8);
+}
+
+
+/* =========================
+   카드마다 다른 색
+========================= */
+
+#root > div > div:nth-child(2)::before {
+    background:
+            linear-gradient(
+                    135deg,
+                    #365e45,
+                    #517a58
+            );
+
+    border-color: #294332;
+}
+
+
+#root > div > div:nth-child(3)::before {
+    background:
+            linear-gradient(
+                    135deg,
+                    #34566f,
+                    #527895
+            );
+
+    border-color: #253b4e;
+}
+
+
+#root > div > div:nth-child(4)::before {
+    background:
+            linear-gradient(
+                    135deg,
+                    #6b4b75,
+                    #8a6594
+            );
+
+    border-color: #4d3656;
+}
+
+
+#root > div > div:nth-child(5)::before {
+    background:
+            linear-gradient(
+                    135deg,
+                    #75511f,
+                    #a07830
+            );
+
+    border-color: #513817;
+}
+
+
+/* =========================
+   등장 애니메이션
+========================= */
+
+@keyframes notificationIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   아래 장식선
+========================= */
+
+#root > div {
+    background-image:
+            linear-gradient(
+                    rgba(255, 255, 255, 0.08),
+                    rgba(255, 255, 255, 0.08)
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(96, 62, 26, 0.025) 0,
+                    rgba(96, 62, 26, 0.025) 1px,
+                    transparent 1px,
+                    transparent 6px
+            ),
+            linear-gradient(
+                    135deg,
+                    #f0dfb2,
+                    #e5cd96
+            );
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 700px) {
+
+    #root {
+        padding: 25px 14px;
+    }
+
+    #root > div {
+        width: 100%;
+        min-height: 500px;
+
+        padding:
+                135px
+                22px
+                28px;
+
+        border-width: 4px;
+    }
+
+    #root > div::before {
+        top: 30px;
+        left: 24px;
+
+        font-size: 23px;
+
+        letter-spacing: 2px;
+    }
+
+    #root > div::after {
+        right: 20px;
+
+        font-size: 10px;
+    }
+
+    #root > div > div {
+        min-height: 67px;
+
+        padding:
+                13px
+                36px
+                13px
+                65px;
+    }
+
+    #root > div > div::before {
+        left: 12px;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 14px;
+    }
+
+    #root > div > div::after {
+        right: 12px;
+
+        font-size: 10px;
+    }
+
+    #root > div > div > span {
+        font-size: 13px;
+    }
+}
