@@ -1,0 +1,179 @@
+/* 전체 카드 레이아웃 */
+.card-container {
+    max-width: 360px;
+    margin: 60px auto;
+    padding: 32px 28px;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #f0f0f2;
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.06),
+    0 0 1px 1px rgba(0, 0, 0, 0.03);
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+/* 상단 상태 라벨 & 인디케이터 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.capacity-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8e8e93;
+    letter-spacing: -0.3px;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #f8f9fa;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-dot.available {
+    background-color: #10b981;
+}
+
+.status-dot.full {
+    background-color: #ef4444;
+}
+
+/* 카운트 숫자 표시부 */
+.count-section {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.count-number {
+    font-size: 52px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -2px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.count-max {
+    font-size: 18px;
+    font-weight: 600;
+    color: #9ca3af;
+}
+
+/* 수용량 게이지 바 */
+.gauge-track {
+    width: 100%;
+    height: 8px;
+    background-color: #f3f4f6;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.gauge-fill {
+    height: 100%;
+    background-color: #18181b;
+    border-radius: 999px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+}
+
+.gauge-fill.full {
+    background-color: #ef4444;
+}
+
+/* 버튼 그룹 */
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.btn {
+    padding: 14px 0;
+    border: none;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.2px;
+}
+
+/* 입장 버튼 (볼드한 다크 스타일) */
+.btn-enter {
+    background-color: #18181b;
+    color: #ffffff;
+}
+
+.btn-enter:hover:not(:disabled) {
+    background-color: #27272a;
+    transform: translateY(-1px);
+}
+
+.btn-enter:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* 퇴장 버튼 (소프트 그레이 스타일) */
+.btn-leave {
+    background-color: #f4f4f5;
+    color: #27272a;
+}
+
+.btn-leave:hover:not(:disabled) {
+    background-color: #e4e4e7;
+    transform: translateY(-1px);
+}
+
+.btn-leave:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* 비활성화 상태 */
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 정원 마감 경고 배너 */
+.alert-banner {
+    background-color: #fff1f2;
+    border: 1px solid #ffe4e6;
+    color: #e11d48;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
