@@ -18,13 +18,16 @@ import reportWebVitals from './reportWebVitals';
 // import Counter from "./07/01/Counter";
 // import TextInputWithFocusButton from "./07/02/TextInputWithFocusButton"
 // import Accommodate from "./07/Accommodate";
-import Toggle from "./08/Toggle";
+// import Toggle from "./08/Toggle";
+// import ConfirmButton from "./08/ConfirmButton";
+// import ConfirmButton2 from "./08/ConfirmButton2";
+import MessageSender from "./08/MessageSender";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 setInterval(()=> {
     root.render(
         <React.StrictMode>
-            <Toggle/>
+            <MessageSender/>
         </React.StrictMode>
     )}, 1000
 );
