@@ -1,0 +1,244 @@
+.fruit-page {
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    padding: 48px 20px;
+    background-color: #f7eee4;
+    background-image:
+            linear-gradient(#bd745810 1px, transparent 1px),
+            linear-gradient(90deg, #bd745810 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: #4f302c;
+    font-family: "Pretendard", "Noto Sans KR", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-align: left;
+}
+
+.fruit-page *,
+.fruit-page *::before,
+.fruit-page *::after {
+    box-sizing: border-box;
+}
+
+.fruit-card {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    margin: 0;
+    overflow: hidden;
+    padding: 44px 36px 26px;
+    border: 1px solid #e7cbb8;
+    border-radius: 22px;
+    background: #fffdf5;
+    box-shadow:
+            0 8px 0 #ead6c4,
+            0 22px 45px #71402c12;
+}
+
+/* 과일 가게의 줄무늬 지붕 */
+.fruit-card::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 12px;
+    background: repeating-linear-gradient(
+            90deg,
+            #d57a61 0 22px,
+            #f6dfb4 22px 44px
+    );
+    content: "";
+}
+
+.fruit-eyebrow {
+    margin: 0;
+    color: #9a5e49;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.1px;
+    text-align: center;
+}
+
+/* 과일 장식 */
+.fruit-tray {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 32px 0 26px;
+}
+
+.fruit-tray span {
+    display: grid;
+    place-items: center;
+    width: 60px;
+    height: 66px;
+    border: 1px solid #efd3bf;
+    border-radius: 30px 30px 12px 12px;
+    background: #fce8dd;
+    font-size: 32px;
+    transform: rotate(-9deg);
+}
+
+.fruit-tray span:nth-child(2) {
+    background: #fcf0c9;
+    transform: translateY(-7px) rotate(6deg);
+}
+
+.fruit-tray span:nth-child(3) {
+    background: #efe5f2;
+    transform: rotate(-5deg);
+}
+
+.fruit-tray span:nth-child(4) {
+    background: #e9edd9;
+    transform: translateY(-5px) rotate(9deg);
+}
+
+.fruit-card h2 {
+    margin: 0;
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.fruit-description {
+    margin: 14px 0 32px;
+    color: #8a7266;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* 선택창 */
+.fruit-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.fruit-select-wrap {
+    position: relative;
+}
+
+.fruit-select-wrap::after {
+    position: absolute;
+    top: 21px;
+    right: 20px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #9a5e49;
+    border-bottom: 2px solid #9a5e49;
+    transform: rotate(45deg);
+    pointer-events: none;
+    content: "";
+}
+
+.fruit-select-wrap select {
+    width: 100%;
+    min-height: 56px;
+    padding: 15px 48px 15px 16px;
+    appearance: none;
+    border: 1px solid #dfc8b5;
+    border-radius: 12px;
+    background: #fffaf0;
+    color: #4f302c;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.fruit-select-wrap select:invalid {
+    color: #887468;
+}
+
+.fruit-select-wrap select:focus-visible {
+    outline: 3px solid #d57a6150;
+    outline-offset: 3px;
+    border-color: #ba654d;
+}
+
+/* 제출 버튼 */
+.fruit-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 16px;
+    padding: 14px 20px;
+    border: 1px solid #a94e3b;
+    border-radius: 12px;
+    background: #b85842;
+    box-shadow: 0 4px 0 #8e3f2f;
+    color: #fffaf2;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+            background 160ms ease,
+            transform 160ms ease,
+            box-shadow 160ms ease;
+}
+
+.fruit-submit span {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.fruit-submit:hover {
+    background: #a94e3b;
+}
+
+.fruit-submit:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #8e3f2f;
+}
+
+.fruit-submit:focus-visible {
+    outline: 3px solid #754533;
+    outline-offset: 5px;
+}
+
+.fruit-footer {
+    margin: 30px 0 0;
+    padding-top: 19px;
+    border-top: 1px dashed #dfc8b5;
+    color: #8a7266;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* 작은 화면 */
+@media (max-width: 400px) {
+    .fruit-page {
+        padding: 28px 16px;
+    }
+
+    .fruit-card {
+        padding: 38px 24px 24px;
+    }
+
+    .fruit-tray {
+        gap: 6px;
+    }
+
+    .fruit-tray span {
+        width: 50px;
+        height: 58px;
+        font-size: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fruit-submit {
+        transition: none;
+    }
+
+    .fruit-submit:active {
+        transform: none;
+    }
+}
