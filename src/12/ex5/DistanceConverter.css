@@ -1,0 +1,262 @@
+/* 전체 화면 */
+.distance-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 40px 20px;
+    background:
+            radial-gradient(
+                    circle at 15% 20%,
+                    rgba(59, 130, 246, 0.12),
+                    transparent 35%
+            ),
+            radial-gradient(
+                    circle at 85% 80%,
+                    rgba(99, 102, 241, 0.1),
+                    transparent 35%
+            ),
+            #f3f6fc;
+    color: #172033;
+    font-family:
+            "Pretendard",
+            "Noto Sans KR",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.distance-page,
+.distance-page * {
+    box-sizing: border-box;
+}
+
+/* 변환기 카드 */
+.distance-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #e5ebf5;
+    border-radius: 28px;
+    box-shadow:
+            0 24px 70px rgba(30, 64, 115, 0.1),
+            0 4px 12px rgba(30, 64, 115, 0.04);
+    animation: distance-appear 0.45s ease-out;
+}
+
+/* 상단 표시 */
+.distance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 100px;
+    color: #2458ba;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.distance-badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: #3b82f6;
+    border-radius: 50%;
+}
+
+/* 제목 */
+.distance-title {
+    margin: 0;
+    color: #172033;
+    font-size: clamp(26px, 5vw, 34px);
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -1.3px;
+}
+
+.distance-description {
+    margin: 12px 0 30px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+/* 입력 영역 */
+.distance-input {
+    min-width: 0;
+    margin: 0;
+    padding: 20px;
+    background: #f8faff;
+    border: 1px solid #e0e8f5;
+    border-radius: 18px;
+    transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+.distance-input:hover {
+    border-color: #b9cdf0;
+}
+
+.distance-input:focus-within {
+    background: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.distance-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #42536e;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.distance-input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.distance-value {
+    width: 100%;
+    min-width: 0;
+    padding: 4px 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: #172033;
+    font-family: inherit;
+    font-size: clamp(26px, 6vw, 36px);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+    caret-color: #2563eb;
+}
+
+.distance-value::placeholder {
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+}
+
+.distance-value::selection {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.distance-unit {
+    flex-shrink: 0;
+    min-width: 50px;
+    padding: 8px 10px;
+    background: #eaf1ff;
+    border-radius: 10px;
+    color: #2458ba;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* 변환 방향 표시 */
+.distance-divider {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.distance-arrow {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    border: 1px solid #dbe5f5;
+    border-radius: 50%;
+    color: #3b82f6;
+    font-size: 22px;
+    box-shadow: 0 3px 8px rgba(30, 64, 115, 0.05);
+}
+
+/* 하단 안내 */
+.distance-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid #edf1f7;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.distance-info-label {
+    color: #64748b;
+}
+
+.distance-info-value {
+    color: #334155;
+    font-weight: 700;
+}
+
+.distance-note {
+    margin: 14px 0 0;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@keyframes distance-appear {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 540px) {
+    .distance-page {
+        padding: 24px 16px;
+    }
+
+    .distance-card {
+        padding: 28px 22px;
+        border-radius: 22px;
+    }
+
+    .distance-input {
+        padding: 18px;
+    }
+
+    .distance-description {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .distance-card {
+        animation: none;
+    }
+
+    .distance-input {
+        transition: none;
+    }
+}

@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #242729;
+    color: #eceee8;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+#root {
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 60px 24px;
+}
+
+/* 두 온도 입력창을 감싸는 패널 */
+div:has(> fieldset + fieldset) {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    width: min(900px, 100%);
+    padding: 38px;
+    border: 1px solid #515556;
+    border-radius: 24px;
+    background:
+            linear-gradient(145deg, #393e40, #2b2f31);
+    box-shadow:
+            0 2px 0 #ffffff15 inset,
+            0 -2px 0 #00000030 inset,
+            0 35px 80px #00000050,
+            0 8px 20px #00000030;
+    animation: panel-appear 700ms ease both;
+}
+
+/* 패널 제목 */
+div:has(> fieldset + fieldset)::before {
+    content: "TEMPERATURE LAB";
+    grid-column: 1 / -1;
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ffffff18;
+    color: #e9ece4;
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1.4;
+}
+
+/* 하단 안내 */
+div:has(> fieldset + fieldset)::after {
+    content: "섭씨와 화씨 온도를 각각 입력해 보세요.";
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff18;
+    color: #b1bab8;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+}
+
+/* 온도 카드 공통 */
+div:has(> fieldset + fieldset) > fieldset {
+    --accent: #a8dce8;
+    --accent-soft: #a8dce814;
+
+    position: relative;
+    box-sizing: border-box;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    padding: 88px 26px 30px;
+    overflow: hidden;
+    border: 1px solid #ffffff16;
+    border-radius: 14px;
+    background:
+            radial-gradient(
+                    ellipse at top right,
+                    var(--accent-soft),
+                    transparent 65%
+            ),
+            #1c2225;
+    box-shadow:
+            0 1px 0 #ffffff08 inset,
+            0 10px 22px #00000020;
+    transition:
+            transform 250ms ease,
+            border-color 250ms ease,
+            box-shadow 250ms ease;
+    animation: none;
+}
+
+/* 화씨 카드 */
+div:has(> fieldset + fieldset) > fieldset:nth-of-type(2) {
+    --accent: #f4ac89;
+    --accent-soft: #f4ac8914;
+}
+
+/* 카드 상단 라벨 */
+div:has(> fieldset + fieldset) > fieldset::before {
+    content: "01 / CELSIUS";
+    position: absolute;
+    top: 27px;
+    left: 26px;
+    color: var(--accent);
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+div:has(> fieldset + fieldset) > fieldset:nth-of-type(2)::before {
+    content: "02 / FAHRENHEIT";
+}
+
+/* 단위 장식 */
+div:has(> fieldset + fieldset) > fieldset::after {
+    content: "°C";
+    position: absolute;
+    top: 17px;
+    right: 23px;
+    color: var(--accent);
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+div:has(> fieldset + fieldset) > fieldset:nth-of-type(2)::after {
+    content: "°F";
+}
+
+/* 설명 문구 */
+div:has(> fieldset + fieldset) > fieldset > legend {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 0;
+    color: #c6cfcb;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 1.8;
+}
+
+/* 숫자 입력 디스플레이 */
+div:has(> fieldset + fieldset) > fieldset > input {
+    display: block;
+    box-sizing: border-box;
+    clear: both;
+    width: 100%;
+    min-width: 0;
+    height: 118px;
+    padding: 16px;
+    border: 1px solid #ffffff14;
+    border-radius: 8px;
+    outline: none;
+    background:
+            repeating-linear-gradient(
+                    0deg,
+                    transparent 0 3px,
+                    #00000008 3px 4px
+            ),
+            #11191c;
+    color: var(--accent);
+    caret-color: var(--accent);
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -2px;
+    text-align: right;
+    box-shadow:
+            0 3px 10px #00000035 inset,
+            0 1px 0 #ffffff05;
+    transition:
+            border-color 200ms ease,
+            box-shadow 200ms ease;
+}
+
+div:has(> fieldset + fieldset) > fieldset > input:focus {
+    border-color: var(--accent);
+    box-shadow:
+            0 3px 10px #00000035 inset,
+            0 0 0 3px var(--accent-soft);
+}
+
+div:has(> fieldset + fieldset) > fieldset > input::selection {
+    background: var(--accent);
+    color: #172126;
+}
+
+/* 판정 문구가 있을 때 */
+div:has(> fieldset + fieldset) > fieldset > p {
+    margin: 20px 0 0;
+    padding: 14px 0 0;
+    border: 0;
+    border-top: 1px solid #ffffff12;
+    background: transparent;
+    color: var(--accent);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+div:has(> fieldset + fieldset) > fieldset > p::before {
+    content: none;
+}
+
+@media (hover: hover) {
+    div:has(> fieldset + fieldset) > fieldset:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+        box-shadow:
+                0 1px 0 #ffffff08 inset,
+                0 16px 28px #00000035;
+    }
+}
+
+@keyframes panel-appear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+    #root {
+        padding: 32px 16px;
+    }
+
+    div:has(> fieldset + fieldset) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    div:has(> fieldset + fieldset)::before {
+        margin-bottom: 4px;
+        padding-bottom: 18px;
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+
+    div:has(> fieldset + fieldset) > fieldset {
+        padding: 78px 22px 24px;
+    }
+
+    div:has(> fieldset + fieldset) > fieldset > input {
+        height: 100px;
+        font-size: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div:has(> fieldset + fieldset),
+    div:has(> fieldset + fieldset) > fieldset,
+    div:has(> fieldset + fieldset) > fieldset > input {
+        animation: none;
+        transition: none;
+    }
+
+    div:has(> fieldset + fieldset) > fieldset:hover {
+        transform: none;
+    }
+}
