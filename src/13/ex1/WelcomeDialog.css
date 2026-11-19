@@ -1,0 +1,411 @@
+
+/* =========================================
+   THE WELCOME ARCHIVE
+   Experimental Editorial Design
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+            'Arial',
+            'Noto Sans KR',
+            sans-serif;
+    background: #edeae0;
+}
+
+/* =========================================
+   전체 화면 / 중앙 정렬
+========================================= */
+
+.Dialog-wrapper {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    gap: 38px;
+    padding: 40px 24px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    isolation: isolate;
+
+    background-color: #edeae0;
+
+    /* 인쇄용 종이 같은 미세한 패턴 */
+    background-image:
+            radial-gradient(
+                    #c9c4b8 0.7px,
+                    transparent 0.7px
+            );
+
+    background-size: 9px 9px;
+}
+
+/* =========================================
+   상단 에디토리얼 타이포그래피
+========================================= */
+
+.Dialog-wrapper::before {
+    content: "THE WELCOME ARCHIVE™";
+
+    position: absolute;
+    top: 35px;
+    left: 5%;
+
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    color: #252525;
+
+    border-bottom: 3px solid #252525;
+    padding-bottom: 10px;
+}
+
+/* 하단 에디션 라벨 */
+
+.Dialog-wrapper::after {
+    content: "NOT YOUR ORDINARY HELLO. / 2026";
+
+    position: absolute;
+    right: 5%;
+    bottom: 35px;
+
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    color: #252525;
+}
+
+/* =========================================
+   공통 아트 티켓 카드
+========================================= */
+
+.Dialog-wrapper > .FancyBorder {
+    --ink: #232323;
+
+    position: relative;
+
+    width: 520px;
+    max-width: calc(100% - 30px);
+    min-height: 215px;
+
+    padding: 65px 36px 35px;
+
+    background: #f9d87b;
+
+    border: 3px solid var(--ink);
+
+    border-radius:
+            3px 35px 3px 35px;
+
+    text-align: left;
+
+    /* 종이를 겹친 듯한 입체 그림자 */
+    box-shadow:
+            13px 13px 0 var(--ink);
+
+    transform: rotate(-3deg);
+
+    transition:
+            transform 0.4s cubic-bezier(.2,.8,.2,1),
+            box-shadow 0.4s ease,
+            background 0.4s ease;
+
+    animation: ticketEnter 0.8s ease both;
+}
+
+/* =========================================
+   첫 번째 티켓
+========================================= */
+
+.Dialog-wrapper > .FancyBorder:nth-child(1) {
+    margin-left: -85px;
+
+    background-color: #f9d87b;
+
+    background-image:
+            repeating-linear-gradient(
+                    135deg,
+                    transparent,
+                    transparent 18px,
+                    rgba(0,0,0,0.025) 19px,
+                    transparent 20px
+            );
+
+    animation-delay: 0.1s;
+}
+
+/* =========================================
+   두 번째 티켓
+========================================= */
+
+.Dialog-wrapper > .FancyBorder:nth-child(2) {
+    margin-left: 85px;
+
+    background-color: #c0d8cd;
+
+    background-image:
+            repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 22px,
+                    rgba(0,0,0,0.025) 23px,
+                    transparent 24px
+            );
+
+    border-radius:
+            35px 3px 35px 3px;
+
+    transform: rotate(3deg);
+
+    box-shadow:
+            -13px 13px 0 #e76f51;
+
+    animation-delay: 0.25s;
+}
+
+/* =========================================
+   카드 상단의 티켓 번호
+========================================= */
+
+.Dialog-wrapper > .FancyBorder::before {
+    content: "ADMIT ONE  /  001";
+
+    position: absolute;
+    top: 22px;
+    left: 36px;
+
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+    color: #232323;
+
+    border-bottom: 2px solid #232323;
+    padding-bottom: 7px;
+}
+
+.Dialog-wrapper > .FancyBorder:nth-child(2)::before {
+    content: "ADMIT ONE  /  002";
+}
+
+/* =========================================
+   실험적인 대형 그래픽 심볼
+========================================= */
+
+.Dialog-wrapper > .FancyBorder::after {
+    content: "✳";
+
+    position: absolute;
+    top: 8px;
+    right: 24px;
+
+    font-family: Arial, sans-serif;
+    font-size: 102px;
+    font-weight: 900;
+    line-height: 1;
+
+    color: #232323;
+
+    transform: rotate(-18deg);
+
+    opacity: 0.85;
+
+    pointer-events: none;
+
+    transition: transform 0.5s ease;
+}
+
+.Dialog-wrapper > .FancyBorder:nth-child(2)::after {
+    content: "✺";
+    color: #e76f51;
+    transform: rotate(18deg);
+}
+
+/* =========================================
+   제목 디자인
+========================================= */
+
+.Dialog-wrapper .Dialog-title {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 17px;
+
+    max-width: 78%;
+
+    font-size: clamp(29px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.15;
+
+    letter-spacing: -2px;
+    color: #232323;
+
+    word-break: keep-all;
+}
+
+/* =========================================
+   설명 텍스트
+========================================= */
+
+.Dialog-wrapper .Dialog-message {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    max-width: 85%;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.7;
+
+    letter-spacing: -0.3px;
+
+    color: #38352f;
+    word-break: keep-all;
+}
+
+/* =========================================
+   마우스 반응 - 종이가 들리는 효과
+========================================= */
+
+.Dialog-wrapper > .FancyBorder:nth-child(1):hover {
+    transform:
+            rotate(0deg)
+            translateY(-12px)
+            scale(1.025);
+
+    box-shadow:
+            20px 22px 0 #232323;
+}
+
+.Dialog-wrapper > .FancyBorder:nth-child(2):hover {
+    transform:
+            rotate(0deg)
+            translateY(-12px)
+            scale(1.025);
+
+    box-shadow:
+            -20px 22px 0 #e76f51;
+}
+
+/* 그래픽 심볼 회전 */
+
+.Dialog-wrapper > .FancyBorder:hover::after {
+    transform: rotate(80deg) scale(1.12);
+}
+
+/* =========================================
+   등장 애니메이션
+========================================= */
+
+@keyframes ticketEnter {
+    from {
+        opacity: 0;
+        translate: 0 55px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* =========================================
+   모바일 최적화
+========================================= */
+
+@media (max-width: 600px) {
+    .Dialog-wrapper {
+        gap: 27px;
+        padding: 80px 24px;
+    }
+
+    .Dialog-wrapper::before {
+        top: 25px;
+        left: 22px;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .Dialog-wrapper::after {
+        bottom: 22px;
+        right: 22px;
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+
+    .Dialog-wrapper > .FancyBorder {
+        width: 100%;
+        max-width: calc(100% - 22px);
+        min-height: 195px;
+        padding: 60px 23px 27px;
+    }
+
+    .Dialog-wrapper > .FancyBorder:nth-child(1) {
+        margin-left: -12px;
+        transform: rotate(-2deg);
+    }
+
+    .Dialog-wrapper > .FancyBorder:nth-child(2) {
+        margin-left: 12px;
+        transform: rotate(2deg);
+    }
+
+    .Dialog-wrapper > .FancyBorder::before {
+        left: 23px;
+        font-size: 10px;
+    }
+
+    .Dialog-wrapper > .FancyBorder::after {
+        right: 12px;
+        font-size: 72px;
+    }
+
+    .Dialog-wrapper .Dialog-title {
+        font-size: 30px;
+        letter-spacing: -1px;
+    }
+
+    .Dialog-wrapper .Dialog-message {
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 580px) {
+    .Dialog-wrapper {
+        justify-content: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Dialog-wrapper > .FancyBorder {
+        animation: none;
+        transition: none;
+    }
+}

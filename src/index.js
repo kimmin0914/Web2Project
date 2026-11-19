@@ -4,12 +4,14 @@ import './index.css';
 // import App from './App';
 // import TodoListApp from "./01/TodoListApp";
 import reportWebVitals from './reportWebVitals';
+// import FancyBorder from "./13/ex1/FancyBorder";
+import WelcomeDialog from "./13/ex1/WelcomeDialog";
 // import Toolbar from "./09/finalEX/Toolbar";
 // import LandingPage from "./09/finalEX/LandingPage";
 // import AttendanceCardBook from "./10/AttendanceCardBook";
 // import FruitSelect from "./11/FruitSelect";
 // import Calculator from "./12/ex4/Calculator";
-import DistanceConverter from "./12/ex5/DistanceConverter";
+// import DistanceConverter from "./12/ex5/DistanceConverter";
 // import LogInControl from "./09/ex2/LogInControl";
 // import Mailbox from "./09/ex3/Mailbox";
 // import MainPage from "./09/ex4/MainPage";
@@ -36,7 +38,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 setInterval(()=> {
     root.render(
         <React.StrictMode>
-            <DistanceConverter/>
+            <WelcomeDialog/>
         </React.StrictMode>
     )}, 1000
 );
