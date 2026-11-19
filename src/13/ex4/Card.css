@@ -1,0 +1,433 @@
+
+/* ====================================
+   PREMIUM TRAVEL CARD COLLECTION
+   ProfileCard.css
+==================================== */
+
+/* 기본 설정 */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+            'Pretendard',
+            'Noto Sans KR',
+            -apple-system,
+            BlinkMacSystemFont,
+            sans-serif;
+
+    background: #faf8f5;
+    color: #252b32;
+}
+
+/* ====================================
+   페이지 전체
+==================================== */
+
+.profile-container {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 65px 4% 80px;
+
+    background:
+            radial-gradient(
+                    circle at 95% 0%,
+                    rgba(248, 221, 202, 0.45),
+                    transparent 32%
+            ),
+            radial-gradient(
+                    circle at 0% 95%,
+                    rgba(215, 233, 225, 0.35),
+                    transparent 30%
+            ),
+            #faf8f5;
+}
+
+/* ====================================
+   페이지 제목
+==================================== */
+
+.profile-container > h2 {
+    margin: 0 0 38px;
+
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+
+    color: #252b32;
+}
+
+.profile-container > h2::before {
+    content: "HANDPICKED STAYS / 2026";
+
+    display: block;
+    margin-bottom: 12px;
+
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #c0846d;
+}
+
+.profile-container > h2::after {
+    content: "✦";
+
+    display: inline-block;
+    margin-left: 12px;
+
+    color: #e6a18a;
+    font-size: 26px;
+
+    animation: sparkle 4s ease-in-out infinite;
+}
+
+/* ====================================
+   카드 목록: 한 줄에 7개
+==================================== */
+
+.card-scroll {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px 5px 35px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #d3c5ba transparent;
+}
+
+.card-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 30px 18px;
+
+    min-width: 1120px;
+}
+
+/* ====================================
+   카드 디자인
+==================================== */
+
+.house-card {
+    position: relative;
+
+    min-width: 0;
+    padding: 8px 8px 17px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(235, 225, 217, 0.9);
+    border-radius: 22px;
+
+    box-shadow:
+            0 5px 18px rgba(64, 52, 43, 0.04),
+            0 15px 40px rgba(64, 52, 43, 0.035);
+
+    transition:
+            transform 0.35s cubic-bezier(.2,.8,.2,1),
+            box-shadow 0.35s ease,
+            border-color 0.35s ease;
+
+    animation: fadeInUp 0.65s ease both;
+}
+
+/* 카드 호버 */
+.house-card:hover {
+    transform: translateY(-9px);
+
+    border-color: #e9c5af;
+
+    box-shadow:
+            0 12px 30px rgba(64, 52, 43, 0.09),
+            0 24px 50px rgba(64, 52, 43, 0.07);
+}
+
+/* ====================================
+   숙소 이미지 영역
+==================================== */
+
+.house-image {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1.08;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #e9e2d9;
+
+    font-size: clamp(43px, 4.2vw, 75px);
+
+    transition:
+            border-radius 0.35s ease,
+            filter 0.35s ease;
+}
+
+/* 사진 영역별 색상 */
+.house-card:nth-child(5n + 1) .house-image {
+    background: linear-gradient(145deg, #e8e3d8, #d8e5da);
+}
+
+.house-card:nth-child(5n + 2) .house-image {
+    background: linear-gradient(145deg, #f2decf, #e8cfc3);
+}
+
+.house-card:nth-child(5n + 3) .house-image {
+    background: linear-gradient(145deg, #dce8ee, #c7d8e5);
+}
+
+.house-card:nth-child(5n + 4) .house-image {
+    background: linear-gradient(145deg, #e9deec, #d6cbe7);
+}
+
+.house-card:nth-child(5n + 5) .house-image {
+    background: linear-gradient(145deg, #f3e6ce, #e9d7b3);
+}
+
+/* 이미지 상단 작은 라벨 */
+.house-image::before {
+    content: "GUEST FAVORITE";
+
+    position: absolute;
+    top: 12px;
+    left: 10px;
+
+    padding: 6px 9px;
+
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
+
+    color: #45413e;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+/* 이미지 우측 상단 하트 */
+.house-image::after {
+    content: "♡";
+
+    position: absolute;
+    top: 7px;
+    right: 11px;
+
+    color: #ffffff;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* ====================================
+   카드 텍스트
+==================================== */
+
+.house-card h1 {
+    margin: 16px 5px 8px;
+
+    color: #2e3238;
+
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.4;
+
+    letter-spacing: -0.4px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.house-card p {
+    margin: 5px 5px;
+
+    color: #898b90;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+/* 가격 강조 */
+.house-card p:last-child {
+    margin-top: 11px;
+
+    color: #c17c62;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* ====================================
+   첫 번째 프로필 카드 강조
+==================================== */
+
+.house-card:first-child {
+    border-color: #bfd8c6;
+}
+
+.house-card:first-child .house-image {
+    background:
+            linear-gradient(
+                    145deg,
+                    #e0efdf,
+                    #c9e4d1
+            );
+}
+
+.house-card:first-child p:last-child {
+    color: #4a9368;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ====================================
+   애니메이션
+==================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(35deg) scale(1.2);
+    }
+}
+
+/* 카드 순차 등장 */
+.house-card:nth-child(7n + 1) {
+    animation-delay: 0.05s;
+}
+
+.house-card:nth-child(7n + 2) {
+    animation-delay: 0.1s;
+}
+
+.house-card:nth-child(7n + 3) {
+    animation-delay: 0.15s;
+}
+
+.house-card:nth-child(7n + 4) {
+    animation-delay: 0.2s;
+}
+
+.house-card:nth-child(7n + 5) {
+    animation-delay: 0.25s;
+}
+
+.house-card:nth-child(7n + 6) {
+    animation-delay: 0.3s;
+}
+
+.house-card:nth-child(7n + 7) {
+    animation-delay: 0.35s;
+}
+
+/* ====================================
+   태블릿 및 모바일
+==================================== */
+
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 38px 20px 55px;
+    }
+
+    .profile-container > h2 {
+        font-size: 25px;
+    }
+
+    .card-list {
+        min-width: 1120px;
+        gap: 20px 13px;
+    }
+
+    .house-card {
+        border-radius: 18px;
+    }
+
+    .house-image {
+        font-size: 55px;
+    }
+}
+
+/* 접근성: 모션 최소화 */
+@media (prefers-reduced-motion: reduce) {
+    .house-card,
+    .profile-container > h2::after {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* 숙소 사진 영역 */
+.house-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f3f3f3;
+}
+
+/* 이미지 크기 조절 */
+.house-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* 마우스를 올리면 사진 확대 */
+.house-card:hover .house-image img {
+    transform: scale(1.08);
+}
+
+/* 가로 7개씩 배치 */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 25px 15px;
+    min-width: 1120px;
+}

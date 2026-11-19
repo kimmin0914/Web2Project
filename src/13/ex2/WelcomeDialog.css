@@ -1,0 +1,289 @@
+
+/* =====================================
+   ART POSTER WELCOME DESIGN
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Arial', 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+
+    background-color: #e9e7df;
+    background-image:
+            radial-gradient(#c5bfb4 1px, transparent 1px);
+    background-size: 18px 18px;
+}
+
+/* 화면 상단 장식 */
+body::before {
+    content: "WELCOME / CREATIVE SPACE";
+
+    position: fixed;
+    top: 35px;
+    left: 5%;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    color: #242424;
+
+    border-bottom: 3px solid #242424;
+    padding-bottom: 12px;
+}
+
+/* 화면 하단 장식 */
+body::after {
+    content: "DESIGNED TO BE DIFFERENT © 2026";
+
+    position: fixed;
+    bottom: 35px;
+    right: 5%;
+
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    color: #242424;
+}
+
+/* =====================================
+   메인 카드 - 정중앙 고정
+===================================== */
+
+body .FancyBorder.FancyBorder-blue {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+            translate(-50%, -50%)
+            rotate(-3deg);
+
+    width: 500px;
+    max-width: calc(100vw - 50px);
+    min-height: 300px;
+
+    padding: 85px 42px 45px;
+
+    background: #ffcc66;
+
+    border: 3px solid #222;
+    border-radius: 4px 55px 4px 55px;
+
+    box-shadow:
+            18px 18px 0 #222;
+
+    text-align: left;
+    overflow: hidden;
+
+    transition:
+            transform 0.4s ease,
+            box-shadow 0.4s ease,
+            background 0.4s ease;
+
+    animation: posterEnter 0.8s ease both;
+}
+
+/* =====================================
+   카드 상단 티켓 라벨
+===================================== */
+
+body .FancyBorder.FancyBorder-blue::before {
+    content: "EXCLUSIVE ACCESS / 001";
+
+    position: absolute;
+    top: 28px;
+    left: 40px;
+
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    color: #222;
+
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+}
+
+/* =====================================
+   대형 그래픽 심볼
+===================================== */
+
+body .FancyBorder.FancyBorder-blue::after {
+    content: "✳";
+
+    position: absolute;
+    top: 12px;
+    right: 25px;
+
+    font-size: 115px;
+    font-weight: 900;
+    line-height: 1;
+
+    color: #f25c3c;
+
+    -webkit-text-stroke: 2px #222;
+
+    transform: rotate(-15deg);
+
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+/* =====================================
+   제목
+===================================== */
+
+body .FancyBorder .Dialog-title {
+    position: relative;
+    z-index: 1;
+
+    margin: 12px 0 24px;
+
+    max-width: 85%;
+
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+
+    color: #222;
+
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================
+   설명 텍스트
+===================================== */
+
+body .FancyBorder .Dialog-message {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+    padding-top: 18px;
+
+    border-top: 2px solid #222;
+
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.7;
+
+    color: #34302a;
+    word-break: keep-all;
+}
+
+/* =====================================
+   마우스 호버 효과
+===================================== */
+
+body .FancyBorder.FancyBorder-blue:hover {
+    transform:
+            translate(-50%, -52%)
+            rotate(0deg)
+            scale(1.025);
+
+    background: #ffd980;
+
+    box-shadow:
+            26px 26px 0 #f25c3c;
+}
+
+body .FancyBorder.FancyBorder-blue:hover::after {
+    transform: rotate(80deg);
+}
+
+/* =====================================
+   등장 애니메이션
+===================================== */
+
+@keyframes posterEnter {
+    from {
+        opacity: 0;
+
+        transform:
+                translate(-50%, -40%)
+                rotate(-8deg)
+                scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+                translate(-50%, -50%)
+                rotate(-3deg)
+                scale(1);
+    }
+}
+
+/* =====================================
+   모바일 반응형
+===================================== */
+
+@media (max-width: 600px) {
+
+    body .FancyBorder.FancyBorder-blue {
+        width: calc(100vw - 55px);
+        min-height: 260px;
+
+        padding: 75px 25px 35px;
+
+        border-radius: 4px 35px 4px 35px;
+
+        box-shadow: 10px 10px 0 #222;
+    }
+
+    body .FancyBorder.FancyBorder-blue::before {
+        left: 25px;
+        font-size: 10px;
+    }
+
+    body .FancyBorder.FancyBorder-blue::after {
+        font-size: 75px;
+        right: 12px;
+    }
+
+    body .FancyBorder .Dialog-title {
+        font-size: 32px;
+    }
+
+    body .FancyBorder .Dialog-message {
+        font-size: 14px;
+    }
+
+    body::before {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    body::after {
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body .FancyBorder.FancyBorder-blue {
+        animation: none;
+        transition: none;
+    }
+}

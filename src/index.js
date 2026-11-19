@@ -4,8 +4,12 @@ import './index.css';
 // import App from './App';
 // import TodoListApp from "./01/TodoListApp";
 import reportWebVitals from './reportWebVitals';
+// import SignUpDialog from "./13/ex3/SignUpDialog";
+import ProfileCard from "./13/ex4/ProfileCard";
+// import WelcomeDialog from "./13/ex2/WelcomeDialog";
+// import Dialog from "./13/ex2/Dialog";
 // import FancyBorder from "./13/ex1/FancyBorder";
-import WelcomeDialog from "./13/ex1/WelcomeDialog";
+// import WelcomeDialog from "./13/ex1/WelcomeDialog";
 // import Toolbar from "./09/finalEX/Toolbar";
 // import LandingPage from "./09/finalEX/LandingPage";
 // import AttendanceCardBook from "./10/AttendanceCardBook";
@@ -38,7 +42,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 setInterval(()=> {
     root.render(
         <React.StrictMode>
-            <WelcomeDialog/>
+            <ProfileCard/>
         </React.StrictMode>
     )}, 1000
 );
